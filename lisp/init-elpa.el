@@ -13,8 +13,14 @@
                          ("melpa" . "http://mirrors.163.com/elpa/melpa/")
                          ("marmalade" . "http://mirrors.163.com/elpa/marmalade/")))
 
-(setq package-enable-at-startup nil)
+;;(setq package-enable-at-startup nil)
 ;;(package-initialize)
+
+;; Initialize packages
+(unless (bound-and-true-p package--initialized) ; To avoid warnings in 27
+  (setq package-enable-at-startup nil)          ; To prevent initializing twice
+  (package-initialize))
+
 
 ;; Bootstrap `use-package'
 (unless (package-installed-p 'use-package)
@@ -25,8 +31,6 @@
   (require 'use-package)
   (setq use-package-verbose t))
 
-(require 'diminish)                ;; if you use :diminish
-(require 'bind-key)                ;; if you use any :bind variant
 
 (provide 'init-elpa)
 ;;; init-elpa.el ends here

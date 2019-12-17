@@ -6,7 +6,7 @@
 
 ;;; Code:
 
-(package-initialize)
+;; (package-initialize)
 
 (setq debug-on-error t)
 
