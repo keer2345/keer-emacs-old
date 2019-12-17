@@ -11,6 +11,8 @@
 
 (setq package-archives '(("gnu"   . "http://mirrors.163.com/elpa/gnu/")
                          ("melpa" . "http://mirrors.163.com/elpa/melpa/")
+                         ("melpa-stable" . "http://mirrors.163.com/elpa/melpa-stable/")
+                         ; ("marmalade" . "http://marmalade-repo.org/packages/")
                          ("marmalade" . "http://mirrors.163.com/elpa/marmalade/")))
 
 ;;(setq package-enable-at-startup nil)
@@ -26,6 +28,13 @@
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
+
+;; Should set before loading `use-package'
+(eval-and-compile
+  (setq use-package-always-ensure t)
+  (setq use-package-always-defer t)
+  (setq use-package-expand-minimally t)
+  (setq use-package-enable-imenu-support t))
 
 (eval-when-compile
   (require 'use-package)
