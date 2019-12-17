@@ -132,9 +132,13 @@
 ;;(require 'init-hydra)
 
 (require 'init-ui)
+(require 'init-theme)
 
 ;; test
 (require 'init-test)
+
+;; lang
+(require 'lang-sml)
 
 
 ;;----------------------------------------------------------------------------
