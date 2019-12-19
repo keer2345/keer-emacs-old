@@ -1,4 +1,11 @@
+;;; init-ui.el --- Settings and helpers for package.el -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
+
+(setq-default fill-column 80)
+
 ;; Title
+;; (setq frame-title-format nil)
 (setq frame-title-format '("Keer Emacs - %b")
       icon-title-format frame-title-format)
 
@@ -13,11 +20,14 @@
 (setq use-file-dialog nil
       use-dialog-box nil
       inhibit-startup-screen t
-      inhibit-startup-echo-area-message t)
+      inhibit-startup-message t
+      inhibit-startup-echo-area-message t
+      initial-scratch-message nil)
+
 
 ;; Change the echo message
-;; (defun display-startup-echo-area-message ()
-;;  (message "Let the games begin!"))
+(defun display-startup-echo-area-message ()
+  (message "Emacs is powering up ... Be patient , Master Keer" ))
 
 (when sys/macp
   ;; Render thinner fonts
@@ -30,10 +40,24 @@
       '((width . 110) ; characters in a line
         (height . 42))) ; number of lines
 
+;; Fullscreen
+;; WORKAROUND: To address blank screen issue with child-frame in fullscreen
+(when (and sys/mac-x-p emacs/>=26p)
+  (add-hook 'window-setup-hook (lambda ()
+                                 (setq ns-use-native-fullscreen nil))))
+(bind-keys ("M-S-<return>" . toggle-frame-fullscreen)
+           ("C-S-<return>" . toggle-frame-maximized))
+
+;; Transparency
+;; (global-set-key (kbd "C-M-6") (lambda () (interactive) (sanityinc/adjust-opacity nil -2)))
+;; (global-set-key (kbd "C-M-7") (lambda () (interactive) (sanityinc/adjust-opacity nil 2)))
+;; (global-set-key (kbd "C-M-8") (lambda () (interactive) (modify-frame-parameters nil `((alpha . 78)))))
+;; (global-set-key (kbd "C-M-9") (lambda () (interactive) (modify-frame-parameters nil `((alpha . 100)))))
 
 ;; Don't use GTK+ tooltip
 (when (boundp 'x-gtk-use-system-tooltips)
   (setq x-gtk-use-system-tooltips nil))
+
 
 (provide 'init-ui)
 

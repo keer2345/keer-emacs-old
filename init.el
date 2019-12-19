@@ -128,14 +128,15 @@
 ;;(require 'init-package)
 
 ;; Preferences
-;;(require 'init-base)
+(require 'init-common)
 ;;(require 'init-hydra)
 
 (require 'init-ui)
 (require 'init-theme)
+(require 'init-util)
 
-;; test
-(require 'init-test)
+;; edit
+(require 'init-edit)
 
 ;; lang
 (require 'lang-sml)
