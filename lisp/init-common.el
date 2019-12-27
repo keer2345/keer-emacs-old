@@ -7,10 +7,39 @@
 (setq user-mail-address keer-mail-address)
 
 ;; defalias allows you to rename a command. It is usually used to abbreviate command name.
-(defalias 'yes-or-no-p 'y-or-n-p) ; y or n is enough
-(defalias 'list-buffers 'ibuffer) ; always use ibuffer
+(fset 'yes-or-no-p 'y-or-n-p) ; y or n is enough
+(fset 'list-buffers 'ibuffer) ; always use ibuffer
 
-(setq make-backup-files nil)
+(setq debug-on-error t
+      backup-inhibited t
+      make-backup-files nil
+      auto-save-default nil
+      auto-save-list-file-prefix nil
+      load-prefer-newer t
+      ring-bell-function 'ignore
+      sentence-end-double-space nil)
+
+;; Fonts
+(when (display-graphic-p)
+  ;; Set default font
+  (cl-loop for font in '("Fira Code" "SF Mono" "Hack" "Source Code Pro"
+                         "Menlo" "Monaco" "DejaVu Sans Mono" "Consolas")
+           when (font-installed-p font)
+           return (set-face-attribute 'default nil
+                                      :font font
+                                      :height (cond (sys/mac-x-p 130)
+                                                    (sys/win32p 110)
+                                                    (t 100))))
+
+  ;; Specify font for all unicode characters
+  (cl-loop for font in '("Symbola" "Apple Symbols" "Symbol" "icons-in-terminal")
+           when (font-installed-p font)
+           return (set-fontset-font t 'unicode font nil 'prepend))
+
+  ;; Specify font for Chinese characters
+  (cl-loop for font in '("WenQuanYi Micro Hei" "Microsoft Yahei")
+           when (font-installed-p font)
+           return (set-fontset-font t '(#x4e00 . #x9fff) font)))
 
 ;; Key Modifiers
 (with-no-warnings

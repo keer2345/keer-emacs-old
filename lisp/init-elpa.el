@@ -9,11 +9,13 @@
 ;;                          ("melpa" . "https://mirrors.cloud.tencent.com/elpa/melpa/")
 ;;                          ("marmalade" . "http://marmalade-repo.org/packages/")))
 
-(setq package-archives '(("gnu"   . "http://mirrors.163.com/elpa/gnu/")
-                         ("melpa" . "http://mirrors.163.com/elpa/melpa/")
-                         ("melpa-stable" . "http://mirrors.163.com/elpa/melpa-stable/")
-                         ; ("marmalade" . "http://marmalade-repo.org/packages/")
-                         ("marmalade" . "http://mirrors.163.com/elpa/marmalade/")))
+;; (setq package-archives '(("gnu"   . "http://mirrors.163.com/elpa/gnu/")
+;;                          ("melpa" . "http://mirrors.163.com/elpa/melpa/")
+;;                          ("melpa-stable" . "http://mirrors.163.com/elpa/melpa-stable/")
+;;                          ("marmalade" . "http://mirrors.163.com/elpa/marmalade/")))
+
+(setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
+                           ("melpa" . "http://elpa.emacs-china.org/melpa/")))
 
 ;;(setq package-enable-at-startup nil)
 ;;(package-initialize)

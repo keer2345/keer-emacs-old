@@ -27,7 +27,7 @@
 
 ;; Change the echo message
 (defun display-startup-echo-area-message ()
-  (message "Emacs is powering up ... Be patient , Master Keer" ))
+  (message "Emacs is powering up ... Be patient , Master %s !" keer-short-name))
 
 (when sys/macp
   ;; Render thinner fonts

@@ -9,6 +9,11 @@
            :group 'keer
            :type 'string)
 
+(defcustom keer-short-name "Keer"
+           "Set user short name"
+           :group 'keer
+           :type 'string)
+
 (defcustom keer-mail-address "keer2345@gmail.com"
   "Set user email address."
   :group 'keer

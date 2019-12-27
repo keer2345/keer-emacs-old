@@ -117,7 +117,7 @@
 (require 'init-const)
 
 ;; Functions
-;;(require 'init-funcs)
+(require 'init-funcs)
 
 ;; Customization
 (require 'init-custom)
@@ -129,17 +129,18 @@
 
 ;; Preferences
 (require 'init-common)
+(require 'init-util)
 ;;(require 'init-hydra)
 
 (require 'init-ui)
 (require 'init-theme)
-(require 'init-util)
+(require 'init-modeline)
 
 ;; edit
 (require 'init-edit)
 
 ;; lang
-(require 'lang-sml)
+;; (require 'lang-sml)
 
 
 ;;----------------------------------------------------------------------------
