@@ -130,16 +130,19 @@
 ;; Preferences
 (require 'init-common)
 (require 'init-util)
-;;(require 'init-hydra)
+
+(require 'init-hydra)
 
 (require 'init-ui)
 (require 'init-theme)
 (require 'init-modeline)
+(require 'init-window)
 
 ;; edit
 (require 'init-edit)
 
 ;; lang
+(require 'lang-scala)
 ;; (require 'lang-sml)
 
 

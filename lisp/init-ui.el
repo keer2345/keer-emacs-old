@@ -48,6 +48,10 @@
 (bind-keys ("M-S-<return>" . toggle-frame-fullscreen)
            ("C-S-<return>" . toggle-frame-maximized))
 
+(when (and sys/linux-x-p emacs/>=26p)
+  (add-to-list 'default-frame-alist '(fullscreen . maximized)))
+
+
 ;; Transparency
 ;; (global-set-key (kbd "C-M-6") (lambda () (interactive) (sanityinc/adjust-opacity nil -2)))
 ;; (global-set-key (kbd "C-M-7") (lambda () (interactive) (sanityinc/adjust-opacity nil 2)))
