@@ -48,8 +48,8 @@
 (bind-keys ("M-S-<return>" . toggle-frame-fullscreen)
            ("C-S-<return>" . toggle-frame-maximized))
 
-(when (and sys/linux-x-p emacs/>=26p)
-  (add-to-list 'default-frame-alist '(fullscreen . maximized)))
+;; (when (and sys/linux-x-p emacs/>=26p)
+;;   (add-to-list 'default-frame-alist '(fullscreen . maximized)))
 
 
 ;; Transparency

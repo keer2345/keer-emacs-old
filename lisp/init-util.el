@@ -25,9 +25,17 @@
 (use-package which-key
              :diminish which-key-mode
              :config
-             (which-key-setup-side-window-right-bottom)
-             :bind (:map help-map ("C-h" . which-key-C-h-dispatch))
+             (progn
+               (which-key-setup-side-window-right-bottom)
+               (setq which-key-idle-secondary-delay 0.05))
+             ;; :bind (:map help-map ("C-h" . which-key-C-h-dispatch))
              :hook (after-init . which-key-mode))
+
+;; Writable grep buffer and apply the changes to files
+(use-package wgrep
+             :init
+             (setq wgrep-auto-save-buffer t
+                   wgrep-change-readonly-file t))
 
 (provide 'init-util)
 

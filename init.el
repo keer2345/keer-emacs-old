@@ -125,13 +125,15 @@
 ;; Packages
 ;; Without this comment Emacs25 adds (package-initialize) here
 (require 'init-elpa)
-;;(require 'init-package)
+
 
 ;; Preferences
 (require 'init-common)
 (require 'init-util)
 
 (require 'init-hydra)
+(require 'init-projectile)
+
 
 (require 'init-ui)
 (require 'init-theme)
