@@ -22,7 +22,7 @@
 ;; Fonts
 (when (display-graphic-p)
   ;; Set default font
-  (cl-loop for font in '("Fira Code" "SF Mono" "Hack" "Source Code Pro"
+  (cl-loop for font in '("Hack" "Fira Code" "SF Mono" "Source Code Pro"
                          "Menlo" "Monaco" "DejaVu Sans Mono" "Consolas")
            when (font-installed-p font)
            return (set-face-attribute 'default nil

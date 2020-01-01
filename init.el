@@ -131,6 +131,7 @@
 (require 'init-common)
 (require 'init-util)
 
+(require 'init-vcs)
 (require 'init-hydra)
 (require 'init-projectile)
 

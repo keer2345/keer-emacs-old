@@ -53,10 +53,10 @@
 
 
 ;; Transparency
-;; (global-set-key (kbd "C-M-6") (lambda () (interactive) (sanityinc/adjust-opacity nil -2)))
-;; (global-set-key (kbd "C-M-7") (lambda () (interactive) (sanityinc/adjust-opacity nil 2)))
-;; (global-set-key (kbd "C-M-8") (lambda () (interactive) (modify-frame-parameters nil `((alpha . 78)))))
-;; (global-set-key (kbd "C-M-9") (lambda () (interactive) (modify-frame-parameters nil `((alpha . 100)))))
+(global-set-key (kbd "C-M-6") (lambda () (interactive) (sanityinc/adjust-opacity nil -5)))
+(global-set-key (kbd "C-M-7") (lambda () (interactive) (sanityinc/adjust-opacity nil 5)))
+(global-set-key (kbd "C-M-8") (lambda () (interactive) (modify-frame-parameters nil `((alpha . 75)))))
+(global-set-key (kbd "C-M-9") (lambda () (interactive) (modify-frame-parameters nil `((alpha . 100)))))
 
 ;; Don't use GTK+ tooltip
 (when (boundp 'x-gtk-use-system-tooltips)
