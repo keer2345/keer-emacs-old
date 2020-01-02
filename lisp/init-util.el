@@ -1,4 +1,6 @@
+;; try
 (use-package try)
+
 
 (use-package lorem-ipsum
              :init
