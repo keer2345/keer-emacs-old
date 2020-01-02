@@ -141,6 +141,10 @@
 (require 'init-modeline)
 (require 'init-window)
 
+;; ivy swiper counsel
+(require 'init-ivy)
+
+
 ;; edit
 (require 'init-edit)
 

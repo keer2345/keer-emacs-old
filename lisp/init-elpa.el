@@ -2,6 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
+(require 'cl)
 (require 'package)
 
 
@@ -15,7 +16,8 @@
 ;;                          ("marmalade" . "http://mirrors.163.com/elpa/marmalade/")))
 
 (setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
-                           ("melpa" . "http://elpa.emacs-china.org/melpa/")))
+                         ("melpa" . "http://elpa.emacs-china.org/melpa/")
+                         ("marmalade" . "http://marmalade-repo.org/packages/")))
 
 ;;(setq package-enable-at-startup nil)
 ;;(package-initialize)
@@ -42,6 +44,44 @@
   (require 'use-package)
   (setq use-package-verbose t))
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; Copy from prelude's emacs
+;;; https://github.com/bbatsov/prelude/blob/master/core/prelude-packages.el
+;;;
+(defvar prelude-packages
+  '()
+  "A list of packages to ensure are installed at launch.")
+
+(defun prelude-packages-installed-p ()
+  "Check if all packages in `prelude-packages' are installed."
+  (every #'package-installed-p prelude-packages))
+
+(defun prelude-require-package (package)
+  "Install PACKAGE unless already installed."
+  (unless (memq package prelude-packages)
+    (add-to-list 'prelude-packages package))
+  (unless (package-installed-p package)
+    (package-install package)))
+
+(defun prelude-require-packages (packages)
+  "Ensure PACKAGES are installed.
+  Missing packages are installed automatically."
+  (mapc #'prelude-require-package packages))
+
+(defun prelude-install-packages ()
+  "Install all packages listed in `prelude-packages'."
+  (unless (prelude-packages-installed-p)
+    ;; check for new packages (package versions)
+    (message "%s" "Emacs Prelude is now refreshing its package database...")
+    (package-refresh-contents)
+    (message "%s" " done.")
+    ;; install the missing packages
+    (prelude-require-packages prelude-packages)))
+
+;; run package installation
+(prelude-install-packages)
+
+;;; prelude emacs package end
 
 (provide 'init-elpa)
 ;;; init-elpa.el ends here
