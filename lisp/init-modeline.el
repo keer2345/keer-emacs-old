@@ -3,7 +3,7 @@
 ;;; Code:
 
 (use-package doom-modeline
-      :hook (after-init . doom-modeline-mode))
+  :hook (after-init . doom-modeline-mode))
 
 (provide 'init-modeline)
 ;;; init-modeline.el ends here

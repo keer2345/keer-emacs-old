@@ -13,21 +13,23 @@
 ;;; This file bootstraps the configuration, which is divided into
 ;;; a number of other files.
 
-(let ((minver "25.1"))
-  (when (version< emacs-version minver)
-    (error "Your Emacs is too old -- this config requires v%s or higher" minver)))
-; (when (version< emacs-version "24.5")
-; (message "Your Emacs is old, and some functionality in this config will be disabled. Please upgrade if possible."))
+(let ((minver "25.1")) 
+  (when (version< emacs-version minver) 
+    (error 
+     "Your Emacs is too old -- this config requires v%s or higher"
+     minver)))
+;; (when (version< emacs-version "24.5")
+;; (message "Your Emacs is old, and some functionality in this config will be disabled. Please upgrade if possible."))
 
 ;; Speed up startup
-(defvar keer-gc-cons-threshold (if (display-graphic-p) 8000000 800000)
+(defvar keer-gc-cons-threshold (if (display-graphic-p) 8000000 800000) 
   "The default value to use for `gc-cons-threshold'. If you experience freezing,
   decrease this. If you experience stuttering, increase this.")
 
-(defvar keer-gc-cons-upper-limit (if (display-graphic-p) 400000000 100000000)
+(defvar keer-gc-cons-upper-limit (if (display-graphic-p) 400000000 100000000) 
   "The temporary value for `gc-cons-threshold' to defer it.")
 
-(defvar keer-gc-timer (run-with-idle-timer 10 t #'garbage-collect)
+(defvar keer-gc-timer (run-with-idle-timer 10 t #'garbage-collect) 
   "Run garbarge collection when idle 10s.")
 
 (defvar default-file-name-handler-alist file-name-handler-alist)
@@ -71,16 +73,16 @@
 ;;   "Update `load-path'."
 ;;   (push (expand-file-name "site-lisp" user-emacs-directory) load-path)
 ;;   (push (expand-file-name "lisp" user-emacs-directory) load-path))
-;; 
+;;
 ;; (defun add-subdirs-to-load-path (&rest _)
 ;;   "Add subdirectories to `load-path'."
 ;;   (let ((default-directory
 ;;           (expand-file-name "site-lisp" user-emacs-directory)))
 ;;     (normal-top-level-add-subdirs-to-load-path)))
-;; 
+;;
 ;; (advice-add #'package-initialize :after #'update-load-path)
 ;; (advice-add #'package-initialize :after #'add-subdirs-to-load-path)
-;; 
+;;
 ;; (update-load-path)
 
 
@@ -90,11 +92,6 @@
 (defconst *is-a-mac* (eq system-type 'darwin))
 (defconst *is-a-linux* (eq system-type 'gnu/linux))
 (defconst *is-a-windows* (eq system-type 'windows-nt))
-
-; (set-face-attribute
-; 'default nil :font "Source Code Pro-13")
-; (set-face-attribute
-  ; 'default nil :font "Fira Code-12")
 
 ;;----------------------------------------------------------------------------
 ;; Adjust garbage collection thresholds during startup, and thereafter
@@ -150,13 +147,13 @@
 
 ;; lang
 (require 'lang-scala)
-;; (require 'lang-sml)
+(require 'lang-lisp)
 
 
 ;;----------------------------------------------------------------------------
 ;; Variables configured via the interactive 'customize' interface
 ;;----------------------------------------------------------------------------
-(when (file-exists-p custom-file)
+(when (file-exists-p custom-file) 
   (load custom-file))
 
 (provide 'init)
