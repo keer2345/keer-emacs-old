@@ -2,6 +2,10 @@
 ;;; Commentary:
 ;;; Code:
 
+(use-package disable-mouse
+  :init
+  (global-disable-mouse-mode))
+
 ;; Jump to things in Emacs tree-style
 (use-package avy
   :bind (("C-:" . avy-goto-char)
@@ -44,6 +48,13 @@
 (use-package comment-dwim-2
   :bind ([remap comment-dwim] . comment-dwim-2)) ;
 
+;; drag-stuff
+(use-package drag-stuff
+  :diminish
+  :commands drag-stuff-define-keys
+  :hook (after-init . drag-stuff-global-mode)
+  :config
+  (drag-stuff-define-keys))
 
 ;; Minor mode to aggressively keep your code always indented
 (use-package aggressive-indent
