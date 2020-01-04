@@ -25,6 +25,24 @@
   :diminish
   :hook (after-init . ace-pinyin-global-mode))
 
+;; Show number of matches in mode-line while searching
+(use-package anzu
+  :diminish
+  :bind (([remap query-replace] . anzu-query-replace)
+         ([remap query-replace-regexp] . anzu-query-replace-regexp)
+         :map isearch-mode-map
+         ([remap isearch-query-replace] . anzu-isearch-query-replace)
+         ([remap isearch-query-replace-regexp] . anzu-isearch-query-replace-regexp))
+  :hook (after-init . global-anzu-mode))
+
+;; Redefine M-< and M-> for some modes
+(when emacs/>=25.3p
+  (use-package beginend
+    :hook (after-init . beginend-global-mode)))
+
+;; An all-in-one comment command to rule them all
+(use-package comment-dwim-2
+  :bind ([remap comment-dwim] . comment-dwim-2)) ;
 
 
 ;; Minor mode to aggressively keep your code always indented
