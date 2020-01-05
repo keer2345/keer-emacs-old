@@ -7,7 +7,6 @@
 ;;; Code:
 
 ;; (package-initialize)
-
 (setq debug-on-error t)
 
 ;;; This file bootstraps the configuration, which is divided into
