@@ -126,12 +126,15 @@
 (require 'init-vcs)
 (require 'init-hydra)
 (require 'init-projectile)
-
+(require 'init-flycheck)
+(require 'init-company)
+(require 'init-yasnippet)
 
 (require 'init-ui)
 (require 'init-theme)
 (require 'init-modeline)
 (require 'init-window)
+(require 'init-highlight)
 
 ;; ivy swiper counsel
 (require 'init-ivy)
@@ -141,6 +144,7 @@
 (require 'init-edit)
 
 ;; lang
+(require 'lang-java)
 (require 'lang-scala)
 (require 'lang-lisp)
 

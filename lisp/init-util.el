@@ -31,7 +31,9 @@
 (use-package wgrep
   :init
   (setq wgrep-auto-save-buffer t
-	wgrep-change-readonly-file t))
+    wgrep-change-readonly-file t))
+
+(use-package smartparens)
 
 (provide 'init-util)
 

@@ -30,7 +30,7 @@
                                       :height (cond (sys/mac-x-p 130)
                                                     (sys/win32p 110)
                                                     (t 100))))
-
+  
   ;; Specify font for all unicode characters
   (cl-loop for font in '("Symbola" "Apple Symbols" "Symbol" "icons-in-terminal")
            when (font-installed-p font)
@@ -41,27 +41,35 @@
            when (font-installed-p font)
            return (set-fontset-font t '(#x4e00 . #x9fff) font)))
 
+
+(if (display-graphic-p)
+    (dolist (charset '(kana han symbol cjk-misc bopomofo))
+      (set-fontset-font (frame-parameter nil 'font)
+                        charset (font-spec :family "Microsoft Yahei"
+                                           :size 14)))
+  )
+
 ;; Key Modifiers
 (with-no-warnings
   (cond
-    (sys/win32p
-      ;; make PC keyboard's Win key or other to type Super or Hyper
-      ;; (setq w32-pass-lwindow-to-system nil)
-      (setq w32-lwindow-modifier 'super     ; Left Windows key
-            w32-apps-modifier 'hyper)       ; Menu/App key
-      (w32-register-hot-key [s-t]))
-    ((and sys/macp (eq window-system 'mac))
-     ;; Compatible with Emacs Mac port
-     (setq mac-option-modifier 'meta
-           mac-command-modifier 'super)
-     (bind-keys ([(super a)] . mark-whole-buffer)
-                ([(super c)] . kill-ring-save)
-                ([(super l)] . goto-line)
-                ([(super q)] . save-buffers-kill-emacs)
-                ([(super s)] . save-buffer)
-                ([(super v)] . yank)
-                ([(super w)] . delete-frame)
-                ([(super z)] . undo)))))
+   (sys/win32p
+    ;; make PC keyboard's Win key or other to type Super or Hyper
+    ;; (setq w32-pass-lwindow-to-system nil)
+    (setq w32-lwindow-modifier 'super     ; Left Windows key
+	  w32-apps-modifier 'hyper)       ; Menu/App key
+    (w32-register-hot-key [s-t]))
+   ((and sys/macp (eq window-system 'mac))
+    ;; Compatible with Emacs Mac port
+    (setq mac-option-modifier 'meta
+	  mac-command-modifier 'super)
+    (bind-keys ([(super a)] . mark-whole-buffer)
+	       ([(super c)] . kill-ring-save)
+	       ([(super l)] . goto-line)
+	       ([(super q)] . save-buffers-kill-emacs)
+	       ([(super s)] . save-buffer)
+	       ([(super v)] . yank)
+	       ([(super w)] . delete-frame)
+	       ([(super z)] . undo)))))
 
 ;; Encoding
 ;; UTF-8 as the default coding system
