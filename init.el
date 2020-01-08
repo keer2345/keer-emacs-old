@@ -144,9 +144,12 @@
 (require 'init-edit)
 
 ;; lang
-(require 'lang-java)
 (require 'lang-scala)
 (require 'lang-lisp)
+
+;; lang java
+(require 'lang-java-meghanada)
+;; (require 'lang-java-lsp)
 
 
 ;;----------------------------------------------------------------------------

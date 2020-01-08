@@ -76,4 +76,4 @@ _q_: exit
   ("q" exit)
   ("z" nil "leave"))
 
-(provide 'lang-java)
+(provide 'lang-java-meghanada)

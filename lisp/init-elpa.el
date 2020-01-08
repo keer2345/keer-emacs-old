@@ -17,7 +17,7 @@
 
 (setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/") 
 			 ("melpa" . "http://elpa.emacs-china.org/melpa/") 
-			 ("marmalade" . "http://marmalade-repo.org/packages/")))
+			 ("marmalade" . "http://elpa.emacs-china.org/marmalade/")))
 
 ;;(setq package-enable-at-startup nil)
 ;;(package-initialize)
