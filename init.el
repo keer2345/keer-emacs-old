@@ -145,6 +145,7 @@
 
 ;; lang
 (require 'lang-scala)
+;; (require 'lang-scala-lsp)
 (require 'lang-lisp)
 
 ;; lang java

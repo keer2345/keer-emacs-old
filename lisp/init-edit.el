@@ -88,6 +88,7 @@
 	     (derived-mode-p 'csharp-mode)
 	     (derived-mode-p 'java-mode)
 	     (derived-mode-p 'go-mode)
+	     (derived-mode-p 'scala-mode)
 	     (derived-mode-p 'swift-mode))
 	 (null (string-match "\\([;{}]\\|\\b\\(if\\|for\\|while\\)\\b\\)"
 			     (thing-at-point 'line))))))
