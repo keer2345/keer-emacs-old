@@ -93,5 +93,18 @@
 	 (null (string-match "\\([;{}]\\|\\b\\(if\\|for\\|while\\)\\b\\)"
 			     (thing-at-point 'line))))))
 
+;; Automatic parenthesis pairing
+(use-package elec-pair
+  :ensure nil
+  :hook (after-init . electric-pair-mode)
+  :init (setq electric-pair-inhibit-predicate 'electric-pair-conservative-inhibit))
+
+;; Handling capitalized subwords in a nomenclature
+(use-package subword
+  :ensure nil
+  :diminish
+  :hook ((prog-mode . subword-mode)
+         (minibuffer-setup . subword-mode)))
+
 (provide 'init-edit)
 ;;; init-common.el ends here

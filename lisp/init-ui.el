@@ -39,6 +39,7 @@
 (setq initial-frame-alist
       '((width . 110) ; characters in a line
         (height . 42))) ; number of lines
+;; (setq initial-frame-alist '((top . 0) (left . 0) (width . 120) (height . 80)))
 
 ;; Fullscreen
 ;; WORKAROUND: To address blank screen issue with child-frame in fullscreen
