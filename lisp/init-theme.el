@@ -6,6 +6,10 @@
 (use-package color-theme-sanityinc-tomorrow)
 (use-package base16-theme)
 (use-package spacemacs-theme)
+(use-package monokai-theme)
+(use-package monokai-pro-theme)
+(use-package zenburn-theme)
+(use-package doom-themes)
 
 ;; Don't prompt to confirm theme safety. This avoids problems with
 ;; first-time startup on Emacs > 26.3.
