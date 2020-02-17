@@ -145,6 +145,7 @@
 
 ;; lang
 ;; (require 'lang-scala)
+(require 'lang-markdown)
 (require 'lang-scala-lsp)
 (require 'lang-lisp)
 (require 'lang-clojure)
