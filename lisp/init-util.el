@@ -34,6 +34,10 @@
     wgrep-change-readonly-file t))
 
 (use-package smartparens)
+(use-package keyfreq
+             :init
+             (keyfreq-mode 1)
+             (keyfreq-autosave-mode 1))
 
 (provide 'init-util)
 

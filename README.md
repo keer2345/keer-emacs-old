@@ -12,6 +12,7 @@ git clone git@github.com:keer2345/keer-emacs.git .emacs.d
 - https://github.com/MatthewZMD/.emacs.d
 
 ## Emacs Configuration
+- [Awesome emacs config files](https://github.com/caisah/emacs.dz)
 - [Sacha Chua's Emacs configuration](http://pages.sachachua.com/.emacs.d/Sacha.html)
 - [jamiecollinson.com](https://jamiecollinson.com/blog/my-emacs-config/)
 
