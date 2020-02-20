@@ -11,11 +11,6 @@
 ;;   (setq geiser-default-implementation "racket"))
 
 
-(use-package paredit
-  :init
-  (paredit-mode t)
-  :config
-  (add-hook 'emacs-lisp-mode-hook 'paredit-mode))
 
 
 (provide 'lang-lisp)
