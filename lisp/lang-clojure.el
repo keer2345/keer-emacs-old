@@ -3,6 +3,10 @@
 ;; https://qiita.com/ayato_p/items/8bac8229cf8de93df887
 ;; https://github.com/bbatsov/prelude/blob/master/modules/prelude-clojure.el
 
+(prelude-require-packages '(clojure-mode
+                            clojure-mode-extra-font-locking
+                            cider
+                            clj-refactor))
 (use-package clojure-mode
   :init
   (add-hook 'clojure-mode-hook #'yas-minor-mode)
@@ -10,6 +14,7 @@
   (add-hook 'clojure-mode-hook #'paredit-mode)
   (add-hook 'clojure-mode-hook #'cider-mode)
   (add-hook 'clojure-mode-hook #'clj-refactor-mode)
+  (add-hook 'before-save-hook  #'cider-format-buffer)
   :config
   (progn
     (setq clojure-align-forms-automatically t)
@@ -35,7 +40,7 @@
 (use-package cider)
 
 (use-package clj-refactor
-             :diminish clj-refactor-mode
-             :config (cljr-add-keybindings-with-prefix "C-c C-m"))
+  :diminish clj-refactor-mode
+  :config (cljr-add-keybindings-with-prefix "C-c C-m"))
 
 (provide 'lang-clojure)
