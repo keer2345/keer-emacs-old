@@ -144,6 +144,7 @@
 
 ;; edit
 (require 'init-edit)
+(require 'init-linum-relative)
 
 ;; lang
 ;; (require 'lang-scala)

@@ -11,12 +11,14 @@
                              cider
                              clj-refactor
                              ;; monroe
-                             ))
+                             ;; smartparens
+                             paredit))
 (use-package clojure-mode
              :init
              (add-hook 'clojure-mode-hook #'yas-minor-mode)
              (add-hook 'clojure-mode-hook #'subword-mode)
              (add-hook 'clojure-mode-hook #'paredit-mode)
+             ;; (add-hook 'clojure-mode-hook #'smartparens-strict-mode)
              (add-hook 'clojure-mode-hook #'rainbow-delimiters-mode)
              (add-hook 'clojure-mode-hook #'aggressive-indent-mode)
              (add-hook 'clojure-mode-hook #'cider-mode)

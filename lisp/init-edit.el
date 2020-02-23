@@ -94,12 +94,12 @@
 			     (thing-at-point 'line))))))
 
 ;; Automatic parenthesis pairing
-(use-package elec-pair
-  :ensure nil
-  :hook (after-init . electric-pair-mode)
-  :init (setq electric-pair-inhibit-predicate 'electric-pair-conservative-inhibit))
+;; (use-package elec-pair
+;;   :ensure nil
+;;   :hook (after-init . electric-pair-mode)
+;;   :init (setq electric-pair-inhibit-predicate 'electric-pair-conservative-inhibit))
 
-(use-package paredit)
+;; (use-package paredit)
 
 ;; Handling capitalized subwords in a nomenclature
 (use-package subword
@@ -107,6 +107,7 @@
   :diminish
   :hook ((prog-mode . subword-mode)
          (minibuffer-setup . subword-mode)))
+
 
 (provide 'init-edit)
 ;;; init-common.el ends here
