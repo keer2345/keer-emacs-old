@@ -17,4 +17,4 @@
 
 (global-linum-mode t)
 
-(provide 'init-relative-linum)
+(provide 'init-linum-relative)
