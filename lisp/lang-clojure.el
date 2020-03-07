@@ -53,7 +53,9 @@
   )
 
 
-(use-package cider)
+(use-package cider
+  :bind
+  (("C-c M-b" . cider-eval-buffer)))
 
 (use-package clj-refactor
   :diminish clj-refactor-mode

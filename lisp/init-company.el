@@ -25,14 +25,15 @@
     (call-interactively 'company-yasnippet))
   :config
   (setq company-tooltip-align-annotations t
-        company-tooltip-limit 12
+        company-tooltip-limit 10
         company-idle-delay 0.1
         company-echo-delay (if (display-graphic-p) nil 0)
         company-minimum-prefix-length 2
         company-selection-wrap-around t
         company-require-match nil
         company-dabbrev-ignore-case nil
-        company-dabbrev-downcase nil)
+        company-dabbrev-downcase nil
+        company-show-numbers t)
 
   ;; Better sorting and filtering
   (use-package company-prescient
@@ -129,7 +130,7 @@
     (use-package company-quickhelp
       :defines company-quickhelp-delay
       :bind (:map company-active-map
-             ([remap company-show-doc-buffer] . company-quickhelp-manual-begin))
+		  ([remap company-show-doc-buffer] . company-quickhelp-manual-begin))
       :hook (global-company-mode . company-quickhelp-mode)
       :init (setq company-quickhelp-delay 0.5))))
 
@@ -137,3 +138,4 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; init-company.el ends here
+
